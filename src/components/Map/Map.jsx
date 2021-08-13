@@ -10,6 +10,7 @@ import useStyles from './styles'
 const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, weatherData}) => {
     const classes = useStyles()
     const isDesktop = useMediaQuery('(min-width:600px)')
+    const isMobile = useMediaQuery('(min-width:600px)')
 
     return (
         <div className={classes.mapContainer}>
@@ -30,7 +31,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
                     lng={Number(place.longitude)}
                     key={i}
                     >
-                        {!isDesktop ? (
+                        {!isDesktop && isMobile ? (
                             <LocationOnOutlinedIcon color="primary" fontSize="large" />
                         ) : (
                                 <Paper elevation={3} className={classes.paper}>
